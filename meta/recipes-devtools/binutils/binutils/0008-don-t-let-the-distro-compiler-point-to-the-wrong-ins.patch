@@ -1,8 +1,8 @@
-From cd6151c8423a0550fd5758ce17664e34560a103c Mon Sep 17 00:00:00 2001
+From 641c5596e4050e1563b667776753d820306e46c4 Mon Sep 17 00:00:00 2001
 From: Khem Raj <raj.khem@gmail.com>
 Date: Mon, 2 Mar 2015 01:39:01 +0000
-Subject: [PATCH] don't let the distro compiler point to the wrong installation
- location
+Subject: [PATCH 08/15] don't let the distro compiler point to the wrong
+ installation location
 
 Thanks to RP for helping find the source code causing the issue.
 
@@ -17,10 +17,10 @@ Signed-off-by: Khem Raj <raj.khem@gmail.com>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/libiberty/Makefile.in b/libiberty/Makefile.in
-index 0be45b4ae8..4817616bb2 100644
+index fe738d0db4..27d818f253 100644
 --- a/libiberty/Makefile.in
 +++ b/libiberty/Makefile.in
-@@ -364,7 +364,8 @@ install-strip: install
+@@ -365,7 +365,8 @@ install-strip: install
  # multilib-specific flags, it's overridden by FLAGS_TO_PASS from the
  # default multilib, so we have to take CFLAGS into account as well,
  # since it will be passed the multilib flags.
@@ -30,3 +30,6 @@ index 0be45b4ae8..4817616bb2 100644
  install_to_libdir: all
  	if test -n "${target_header_dir}"; then \
  		${mkinstalldirs} $(DESTDIR)$(libdir)/$(MULTIOSDIR); \
+-- 
+2.25.1
+
